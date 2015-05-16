@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Bank.Models
 {
-    class Competition
+    public class Competition
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
