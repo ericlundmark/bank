@@ -14,5 +14,6 @@ namespace Bank.Models
         public String home { get; set; }
         public String away { get; set; }
         public DateTime dateTime { get; set; }
+        public Outcome outcome { get; set; }
     }
 }
