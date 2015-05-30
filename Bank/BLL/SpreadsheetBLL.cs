@@ -9,16 +9,16 @@ namespace Bank.BLL
 {
     public class SpreadsheetBLL : ISpreadsheetBLL
     {
-        ISpreadsheetDLL dataLayer;
+        private ISpreadsheetDLL dataLayer;
+
         public SpreadsheetBLL(ISpreadsheetDLL dataLayer)
         {
             this.dataLayer = dataLayer;
         }
 
-
-        public void Create(Spreadsheet spreadsheet)
+        public Spreadsheet Create(Spreadsheet spreadsheet)
         {
-            dataLayer.Create(spreadsheet);
+            return dataLayer.Create(spreadsheet);
         }
 
         public Spreadsheet Find(int id)
@@ -31,14 +31,14 @@ namespace Bank.BLL
             dataLayer.Save(spreadsheet);
         }
 
-        public void Delete(Spreadsheet spreadsheet)
+        public void Remove(Spreadsheet spreadsheet)
         {
-            dataLayer.Delete(spreadsheet);
+            dataLayer.Remove(spreadsheet);
         }
 
-        public void AddBet(Spreadsheet spreadsheet, Models.Bet bet)
+        public void AddBet(Spreadsheet spreadsheet, Models.Wager bet)
         {
-            spreadsheet.bets.Add(bet);
+            spreadsheet.Wagers.Add(bet);
             dataLayer.Save(spreadsheet);
         }
 
@@ -52,6 +52,12 @@ namespace Bank.BLL
         public IQueryable<Spreadsheet> List()
         {
             return dataLayer.List();
+        }
+
+
+        public bool SpreadsheetExists(int id)
+        {
+            return dataLayer.SpreadsheetExists(id);
         }
     }
 }

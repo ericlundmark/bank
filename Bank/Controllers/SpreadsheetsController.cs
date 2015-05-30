@@ -46,7 +46,7 @@ namespace Bank.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != spreadsheet.id)
+            if (id != spreadsheet.Id)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace Bank.Controllers
 
             bll.Create(spreadsheet);
 
-            return CreatedAtRoute("DefaultApi", new { id = spreadsheet.id }, spreadsheet);
+            return CreatedAtRoute("DefaultApi", new { id = spreadsheet.Id }, spreadsheet);
         }
 
         // DELETE: api/Spreadsheets/5
@@ -94,7 +94,7 @@ namespace Bank.Controllers
                 return NotFound();
             }
 
-            bll.Delete(spreadsheet);
+            bll.Remove(spreadsheet);
 
             return Ok(spreadsheet);
         }

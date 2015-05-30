@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Bank.Models
 {
-    enum Outcome
+    public enum Outcome
     {
         Win, Draw, Loss
     }

@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bank.BLL
+namespace Bank.DLL
 {
-    interface IBetBLL
+    interface IWagerDLL
     {
-        public void Create(Bet bet);
-        public void Update(Bet bet);
-        public void Delete(Bet bet);
+        void Create(Wager bet);
+        void Save(Wager bet);
+        void Remove(Wager bet);
     }
 }

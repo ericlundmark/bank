@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Bank.Models
 {
-    public class Bet
+    public class Wager
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }

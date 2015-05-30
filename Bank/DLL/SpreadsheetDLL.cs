@@ -11,10 +11,11 @@ namespace Bank.DLL
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public void Create(Spreadsheet spreadsheet)
+        public Spreadsheet Create(Spreadsheet spreadsheet)
         {
-            db.Spreadsheets.Add(spreadsheet);
+            spreadsheet = db.Spreadsheets.Add(spreadsheet);
             db.SaveChanges();
+            return spreadsheet;
         }
 
         public Spreadsheet Find(int id)
@@ -28,7 +29,7 @@ namespace Bank.DLL
             db.SaveChanges();
         }
 
-        public void Delete(Spreadsheet spreadsheet)
+        public void Remove(Spreadsheet spreadsheet)
         {
             db.Spreadsheets.Remove(spreadsheet);
             db.SaveChanges();
@@ -47,7 +48,13 @@ namespace Bank.DLL
 
         public IQueryable<Spreadsheet> List()
         {
-            return db.Set<Spreadsheet>();
+            return db.Spreadsheets;
+        }
+
+
+        public bool SpreadsheetExists(int id)
+        {
+            return db.Spreadsheets.Count(spreadsheet => spreadsheet.Id == id) > 0;
         }
     }
 }

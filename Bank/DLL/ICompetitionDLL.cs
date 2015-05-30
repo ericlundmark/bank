@@ -9,8 +9,8 @@ namespace Bank.DLL
 {
     interface ICompetitionDLL
     {
-        public void Create(Competition competition);
-        public void Save(Competition competition);
-        public void Delete(Competition competition);
+        void Create(Competition competition);
+        void Save(Competition competition);
+        void Remove(Competition competition);
     }
 }

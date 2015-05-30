@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Bank.Models
 {
     public class Spreadsheet
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public ApplicationUser creator { get; set; }
-        public DateTime created { get; set; }
-        public float roi { get; set; }
-        public double balance { get; set; }
-        public double investment { get; set; }
-        public IList<Bet> bets { get; set; }
+        public int Id { get; set; }
+        public String Name { get; set; }
+        public ApplicationUser Creator { get; set; }
+
+        public DateTimeOffset Created { get; set; }
+        public float Roi { get; set; }
+        public double Balance { get; set; }
+        public double Investment { get; set; }
+        public IList<Wager> Wagers { get; set; }
+
+        public Spreadsheet()
+        {
+            this.Created = DateTimeOffset.Now;
+        }
     }
 }

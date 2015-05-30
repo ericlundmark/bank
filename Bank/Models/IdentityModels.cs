@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace Bank.Models
 {
@@ -31,7 +30,7 @@ namespace Bank.Models
         }
 
         public System.Data.Entity.DbSet<Bank.Models.Spreadsheet> Spreadsheets { get; set; }
-        public System.Data.Entity.DbSet<Bank.Models.Bet> Bets { get; set; }
+        public System.Data.Entity.DbSet<Bank.Models.Wager> Bets { get; set; }
         public System.Data.Entity.DbSet<Bank.Models.Competition> Competitions { get; set; }
     }
 }

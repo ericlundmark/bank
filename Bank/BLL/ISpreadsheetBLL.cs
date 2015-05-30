@@ -9,11 +9,11 @@ namespace Bank.BLL
 {
     interface ISpreadsheetBLL
     {
-        public void Create(Spreadsheet spreadsheet);
-        public Spreadsheet Find(int id);
-        public void Save(Spreadsheet spreadsheet);
-        public void Delete(Spreadsheet spreadsheet);
-        public void AddBet(Spreadsheet spreadsheet, Bet bet);
+        Spreadsheet Create(Spreadsheet spreadsheet);
+        Spreadsheet Find(int id);
+        void Save(Spreadsheet spreadsheet);
+        void Remove(Spreadsheet spreadsheet);
+        void AddBet(Spreadsheet spreadsheet, Wager bet);
 
         void Dispose(bool disposing);
 

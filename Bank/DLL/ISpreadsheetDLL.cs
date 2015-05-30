@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace Bank.DLL
 {
-    interface ISpreadsheetDLL
+    public interface ISpreadsheetDLL
     {
-        public void Create(Spreadsheet spreadsheet);
-        public Spreadsheet Find(int id);
-        public void Save(Spreadsheet spreadsheet);
-        public void Delete(Spreadsheet spreadsheet);
+        Spreadsheet Create(Spreadsheet spreadsheet);
+        Spreadsheet Find(int id);
+        void Save(Spreadsheet spreadsheet);
+        void Remove(Spreadsheet spreadsheet);
 
         void Dispose(bool disposing);
 
 
         IQueryable<Spreadsheet> List();
+
+        bool SpreadsheetExists(int id);
     }
 }
