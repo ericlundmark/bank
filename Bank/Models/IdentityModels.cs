@@ -16,21 +16,4 @@ namespace Bank.Models
             return userIdentity;
         }
     }
-
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
-        
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
-        public System.Data.Entity.DbSet<Bank.Models.Spreadsheet> Spreadsheets { get; set; }
-        public System.Data.Entity.DbSet<Bank.Models.Wager> Bets { get; set; }
-        public System.Data.Entity.DbSet<Bank.Models.Competition> Competitions { get; set; }
-    }
 }

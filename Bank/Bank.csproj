@@ -222,16 +222,19 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpreadsheetsController.cs" />
-    <Compile Include="DLL\WagerDLL.cs" />
-    <Compile Include="DLL\IWagerDLL.cs" />
-    <Compile Include="DLL\ICompetitionDLL.cs" />
-    <Compile Include="DLL\ISpreadsheetDLL.cs" />
-    <Compile Include="DLL\SpreadsheetDLL.cs" />
+    <Compile Include="Repositories\WagerRepository.cs" />
+    <Compile Include="Repositories\IWagerRepository.cs" />
+    <Compile Include="Repositories\ICompetitionRepository.cs" />
+    <Compile Include="Repositories\ISpreadsheetRepository.cs" />
+    <Compile Include="Repositories\SpreadsheetRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Wager.cs" />
     <Compile Include="Models\Competition.cs" />
     <Compile Include="Models\IdentityModels.cs" />

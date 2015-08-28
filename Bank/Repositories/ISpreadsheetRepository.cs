@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank.DLL
 {
-    public interface ISpreadsheetDLL
+    public interface ISpreadsheetRepository
     {
         Spreadsheet Create(Spreadsheet spreadsheet);
         Spreadsheet Find(int id);

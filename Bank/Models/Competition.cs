@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 
 namespace Bank.Models
 {
     public class Competition
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public String home { get; set; }
-        public String away { get; set; }
-        public DateTime dateTime { get; set; }
-        public Outcome outcome { get; set; }
+        public int Id { get; set; }
+
+        public string ExternalId { get; set; }
+        public Provider Provider { get; set; }
+        public string Home { get; set; }
+        public string Away { get; set; }
+        public DateTime DateTime { get; set; }
+        public Outcome Outcome { get; set; }
     }
 }

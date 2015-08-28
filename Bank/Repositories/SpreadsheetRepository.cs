@@ -1,19 +1,20 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using Bank.DLL;
 using Bank.Models;
 
-namespace Bank.DLL
+namespace Bank.Repositories
 {
-    public class SpreadsheetDll : ISpreadsheetDLL
+    public class SpreadsheetRepository : ISpreadsheetRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public SpreadsheetDll()
+        public SpreadsheetRepository()
         {
             _db = new ApplicationDbContext();
         }
 
-        public SpreadsheetDll(ApplicationDbContext db)
+        public SpreadsheetRepository(ApplicationDbContext db)
         {
             _db = db;
         }

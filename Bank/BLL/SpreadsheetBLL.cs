@@ -9,9 +9,9 @@ namespace Bank.BLL
 {
     public class SpreadsheetBLL : ISpreadsheetBLL
     {
-        private ISpreadsheetDLL dataLayer;
+        private ISpreadsheetRepository dataLayer;
 
-        public SpreadsheetBLL(ISpreadsheetDLL dataLayer)
+        public SpreadsheetBLL(ISpreadsheetRepository dataLayer)
         {
             this.dataLayer = dataLayer;
         }

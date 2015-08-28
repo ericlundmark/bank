@@ -1,19 +1,16 @@
-﻿using Bank.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using Bank.DLL;
+using Bank.Models;
 
-namespace Bank.DLL
+namespace Bank.Repositories
 {
-    public class WagerDLL : IWagerDLL
+    public class WagerRepository : IWagerRepository
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
 
         public void Create(Wager bet)
         {
-            db.Bets.Add(bet);
+            db.Wagers.Add(bet);
             db.SaveChanges();
         }
 
@@ -25,7 +22,7 @@ namespace Bank.DLL
 
         public void Remove(Wager bet)
         {
-            db.Bets.Remove(bet);
+            db.Wagers.Remove(bet);
             db.SaveChanges();
         }
     }

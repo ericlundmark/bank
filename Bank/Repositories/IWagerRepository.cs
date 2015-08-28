@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bank.DLL
 {
-    interface ICompetitionDLL
+    interface IWagerRepository
     {
-        void Create(Competition competition);
-        void Save(Competition competition);
-        void Remove(Competition competition);
+        void Create(Wager bet);
+        void Save(Wager bet);
+        void Remove(Wager bet);
     }
 }

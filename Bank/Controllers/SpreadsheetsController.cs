@@ -6,6 +6,7 @@ using System.Web.Http.Description;
 using Bank.BLL;
 using Bank.DLL;
 using Bank.Models;
+using Bank.Repositories;
 
 namespace Bank.Controllers
 {
@@ -15,12 +16,12 @@ namespace Bank.Controllers
 
         public SpreadsheetsController()
         {
-            _bll = new SpreadsheetBLL(new SpreadsheetDll());
+            _bll = new SpreadsheetBLL(new SpreadsheetRepository());
         }
 
         public SpreadsheetsController(ApplicationDbContext context)
         {
-            _bll = new SpreadsheetBLL(new SpreadsheetDll(context));
+            _bll = new SpreadsheetBLL(new SpreadsheetRepository(context));
         }
 
         // GET: api/Spreadsheets
