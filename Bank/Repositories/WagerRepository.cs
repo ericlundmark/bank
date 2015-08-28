@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using Bank.DLL;
 using Bank.Models;
 
 namespace Bank.Repositories

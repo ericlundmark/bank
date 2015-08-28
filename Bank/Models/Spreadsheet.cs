@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
 {
-    public class Spreadsheet
+    public class Spreadsheet : Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -21,9 +21,6 @@ namespace Bank.Models
         [DataType(DataType.Currency)]
         public double? Investment { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTimeOffset Created { get; set; }
-
         [DefaultValue(100f)]
         public float Roi { get; set; }
 
@@ -34,7 +31,6 @@ namespace Bank.Models
 
         public Spreadsheet()
         {
-            Created = DateTimeOffset.UtcNow;
             Balance = Investment;
         }
     }
