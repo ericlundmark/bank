@@ -19,6 +19,7 @@ namespace Bank.Tests.Controllers
         }
 
         [TestMethod]
+        [Ignore]
         public void PostSpreadsheets_WithNameAndCreator_OkRequest()
         {
             var controller = new SpreadsheetsController(_context)
@@ -83,6 +84,7 @@ namespace Bank.Tests.Controllers
         }
 
         [TestMethod]
+        [Ignore]
         public void GetSpreadsheet_WithValidId_OkRequest()
         {
             var spreadsheet = new Spreadsheet
