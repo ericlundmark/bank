@@ -1,60 +1,63 @@
-﻿using Bank.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
+using Bank.Models;
 
 namespace Bank.DLL
 {
-    public class SpreadsheetDLL : ISpreadsheetDLL
+    public class SpreadsheetDll : ISpreadsheetDLL
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db;
+
+        public SpreadsheetDll()
+        {
+            _db = new ApplicationDbContext();
+        }
+
+        public SpreadsheetDll(ApplicationDbContext db)
+        {
+            _db = db;
+        }
 
         public Spreadsheet Create(Spreadsheet spreadsheet)
         {
-            spreadsheet = db.Spreadsheets.Add(spreadsheet);
-            db.SaveChanges();
+            spreadsheet = _db.Spreadsheets.Add(spreadsheet);
+            _db.SaveChanges();
             return spreadsheet;
         }
 
         public Spreadsheet Find(int id)
         {
-            return db.Spreadsheets.Find(id);
+            return _db.Spreadsheets.Find(id);
         }
 
         public void Save(Spreadsheet spreadsheet)
         {
-            db.Entry(spreadsheet).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(spreadsheet).State = EntityState.Modified;
+            _db.SaveChanges();
         }
 
         public void Remove(Spreadsheet spreadsheet)
         {
-            db.Spreadsheets.Remove(spreadsheet);
-            db.SaveChanges();
+            _db.Spreadsheets.Remove(spreadsheet);
+            _db.SaveChanges();
         }
-
-
 
         public void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
         }
 
-
         public IQueryable<Spreadsheet> List()
         {
-            return db.Spreadsheets;
+            return _db.Spreadsheets;
         }
-
 
         public bool SpreadsheetExists(int id)
         {
-            return db.Spreadsheets.Count(spreadsheet => spreadsheet.Id == id) > 0;
+            return _db.Spreadsheets.Count(spreadsheet => spreadsheet.Id == id) > 0;
         }
     }
 }

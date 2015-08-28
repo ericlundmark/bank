@@ -1,34 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Bank.Models;
 using Bank.BLL;
 using Bank.DLL;
+using Bank.Models;
 
 namespace Bank.Controllers
 {
     public class SpreadsheetsController : ApiController
     {
-        ISpreadsheetBLL bll = new SpreadsheetBLL(new SpreadsheetDLL());
+        private readonly ISpreadsheetBLL _bll;
+
+        public SpreadsheetsController()
+        {
+            _bll = new SpreadsheetBLL(new SpreadsheetDll());
+        }
+
+        public SpreadsheetsController(ApplicationDbContext context)
+        {
+            _bll = new SpreadsheetBLL(new SpreadsheetDll(context));
+        }
 
         // GET: api/Spreadsheets
-        public IQueryable<Spreadsheet> GetSpreadsheets()
+        [ResponseType(typeof(List<Spreadsheet>))]
+        public IHttpActionResult GetSpreadsheets()
         {
-            return bll.List();
+            return Ok(_bll.List());
         }
 
         // GET: api/Spreadsheets/5
         [ResponseType(typeof(Spreadsheet))]
         public IHttpActionResult GetSpreadsheet(int id)
         {
-            Spreadsheet spreadsheet = bll.Find(id);
+            Spreadsheet spreadsheet = _bll.Find(id);
             if (spreadsheet == null)
             {
                 return NotFound();
@@ -53,18 +59,15 @@ namespace Bank.Controllers
 
             try
             {
-                bll.Save(spreadsheet);
+                _bll.Save(spreadsheet);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!bll.SpreadsheetExists(id))
+                if (!_bll.SpreadsheetExists(id))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -79,7 +82,7 @@ namespace Bank.Controllers
                 return BadRequest(ModelState);
             }
 
-            bll.Create(spreadsheet);
+            _bll.Create(spreadsheet);
 
             return CreatedAtRoute("DefaultApi", new { id = spreadsheet.Id }, spreadsheet);
         }
@@ -88,13 +91,13 @@ namespace Bank.Controllers
         [ResponseType(typeof(Spreadsheet))]
         public IHttpActionResult DeleteSpreadsheet(int id)
         {
-            Spreadsheet spreadsheet = bll.Find(id);
+            Spreadsheet spreadsheet = _bll.Find(id);
             if (spreadsheet == null)
             {
                 return NotFound();
             }
 
-            bll.Remove(spreadsheet);
+            _bll.Remove(spreadsheet);
 
             return Ok(spreadsheet);
         }
@@ -102,7 +105,7 @@ namespace Bank.Controllers
         protected override void Dispose(bool disposing)
         {
             
-            bll.Dispose(disposing);
+            _bll.Dispose(disposing);
             base.Dispose(disposing);
         }
     }
