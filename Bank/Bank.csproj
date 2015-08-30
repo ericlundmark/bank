@@ -225,6 +225,7 @@
     <Compile Include="Models\Model.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Providers\PinnacleProvider.cs" />
     <Compile Include="Repositories\WagerRepository.cs" />
     <Compile Include="Repositories\IWagerRepository.cs" />
     <Compile Include="Repositories\ICompetitionRepository.cs" />
@@ -244,7 +245,7 @@
     <Compile Include="Models\Outcome.cs" />
     <Compile Include="Models\Spreadsheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="AuthProviders\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\ICompetitionParser.cs">
