@@ -222,7 +222,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpreadsheetsController.cs" />
-    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\Model.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Repositories\WagerRepository.cs" />
     <Compile Include="Repositories\IWagerRepository.cs" />
     <Compile Include="Repositories\ICompetitionRepository.cs" />
