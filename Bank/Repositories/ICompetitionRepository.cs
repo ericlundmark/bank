@@ -1,4 +1,5 @@
-﻿using Bank.Models;
+﻿using System.Collections.Generic;
+using Bank.Models;
 
 namespace Bank.Repositories
 {
@@ -7,5 +8,6 @@ namespace Bank.Repositories
         void Create(Competition competition);
         void Save(Competition competition);
         void Remove(Competition competition);
+        void Add(IEnumerable<Competition> competitions);
     }
 }

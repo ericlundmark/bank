@@ -9,12 +9,8 @@ namespace Bank.Repositories
         Spreadsheet Find(int id);
         void Save(Spreadsheet spreadsheet);
         void Remove(Spreadsheet spreadsheet);
-
         void Dispose(bool disposing);
-
-
         IQueryable<Spreadsheet> List();
-
         bool SpreadsheetExists(int id);
     }
 }

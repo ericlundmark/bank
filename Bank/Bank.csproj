@@ -247,6 +247,10 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utility\ICompetitionParser.cs" />
+    <Compile Include="Utility\IDataCollector.cs" />
+    <Compile Include="Utility\IProvider.cs" />
+    <Compile Include="Utility\Provider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
