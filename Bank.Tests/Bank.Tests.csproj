@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\PinnacleProviderTests.cs" />
+    <Compile Include="Repositories\SpreadsheetRepositoryTests.cs" />
     <Compile Include="Utility\ProviderTests.cs">
       <SubType>Code</SubType>
     </Compile>

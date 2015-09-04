@@ -215,10 +215,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="BLL\IWagerBLL.cs" />
-    <Compile Include="BLL\ICompetitionBLL.cs" />
-    <Compile Include="BLL\ISpreadsheetBLL.cs" />
-    <Compile Include="BLL\SpreadsheetBLL.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpreadsheetsController.cs" />

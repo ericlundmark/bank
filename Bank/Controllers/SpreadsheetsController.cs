@@ -3,7 +3,6 @@ using System.Data.Entity.Infrastructure;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Bank.BLL;
 using Bank.Models;
 using Bank.Repositories;
 
@@ -11,30 +10,25 @@ namespace Bank.Controllers
 {
     public class SpreadsheetsController : ApiController
     {
-        private readonly ISpreadsheetBLL _bll;
+        private readonly ISpreadsheetRepository _repository;
 
         public SpreadsheetsController()
         {
-            _bll = new SpreadsheetBLL(new SpreadsheetRepository());
-        }
-
-        public SpreadsheetsController(ApplicationDbContext context)
-        {
-            _bll = new SpreadsheetBLL(new SpreadsheetRepository(context));
+            _repository = new SpreadsheetRepository(new ApplicationDbContext());
         }
 
         // GET: api/Spreadsheets
         [ResponseType(typeof (List<Spreadsheet>))]
         public IHttpActionResult GetSpreadsheets()
         {
-            return Ok(_bll.List());
+            return Ok(_repository.List());
         }
 
         // GET: api/Spreadsheets/5
         [ResponseType(typeof (Spreadsheet))]
         public IHttpActionResult GetSpreadsheet(int id)
         {
-            var spreadsheet = _bll.Find(id);
+            var spreadsheet = _repository.Find(id);
             if (spreadsheet == null)
             {
                 return NotFound();
@@ -59,11 +53,11 @@ namespace Bank.Controllers
 
             try
             {
-                _bll.Save(spreadsheet);
+                _repository.Save(spreadsheet);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_bll.SpreadsheetExists(id))
+                if (!_repository.SpreadsheetExists(id))
                 {
                     return NotFound();
                 }
@@ -82,7 +76,7 @@ namespace Bank.Controllers
                 return BadRequest(ModelState);
             }
 
-            _bll.Create(spreadsheet);
+            _repository.Create(spreadsheet);
 
             return CreatedAtRoute("DefaultApi", new {id = spreadsheet.Id}, spreadsheet);
         }
@@ -91,20 +85,20 @@ namespace Bank.Controllers
         [ResponseType(typeof (Spreadsheet))]
         public IHttpActionResult DeleteSpreadsheet(int id)
         {
-            var spreadsheet = _bll.Find(id);
+            var spreadsheet = _repository.Find(id);
             if (spreadsheet == null)
             {
                 return NotFound();
             }
 
-            _bll.Remove(spreadsheet);
+            _repository.Remove(spreadsheet);
 
             return Ok(spreadsheet);
         }
 
         protected override void Dispose(bool disposing)
         {
-            _bll.Dispose(disposing);
+            _repository.Dispose(disposing);
             base.Dispose(disposing);
         }
     }

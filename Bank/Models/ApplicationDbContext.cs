@@ -10,9 +10,9 @@ namespace Bank.Models
         {
         }
 
-        public DbSet<Spreadsheet> Spreadsheets { get; set; }
-        public DbSet<Wager> Wagers { get; set; }
-        public DbSet<Competition> Competitions { get; set; }
+        public virtual DbSet<Spreadsheet> Spreadsheets { get; set; }
+        public virtual DbSet<Wager> Wagers { get; set; }
+        public virtual DbSet<Competition> Competitions { get; set; }
 
         public static ApplicationDbContext Create()
         {

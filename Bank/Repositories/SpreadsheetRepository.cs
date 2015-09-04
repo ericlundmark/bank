@@ -8,11 +8,6 @@ namespace Bank.Repositories
     {
         private readonly ApplicationDbContext _db;
 
-        public SpreadsheetRepository()
-        {
-            _db = new ApplicationDbContext();
-        }
-
         public SpreadsheetRepository(ApplicationDbContext db)
         {
             _db = db;
