@@ -43,5 +43,10 @@ namespace Bank.Repositories
                 _context.Dispose();
             }
         }
+
+        public bool ProviderExists(int id)
+        {
+            return _context.Providers.Count(p => p.Id.Equals(id)) > 0;
+        }
     }
 }

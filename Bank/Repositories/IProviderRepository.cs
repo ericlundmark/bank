@@ -10,5 +10,6 @@ namespace Bank.Repositories
         IQueryable<Provider> List();
         void Save(Provider provider);
         void Dispose(bool disposing);
+        bool ProviderExists(int id);
     }
 }

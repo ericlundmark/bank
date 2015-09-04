@@ -70,16 +70,13 @@ namespace Bank.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
+            _repository.Dispose(disposing);
             base.Dispose(disposing);
         }
 
         private bool ProviderExists(int id)
         {
-            return db.Providers.Count(e => e.Id == id) > 0;
+            return _repository.ProviderExists(id);
         }
     }
 }
