@@ -18,5 +18,7 @@ namespace Bank.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Bank.Models.Provider> Providers { get; set; }
     }
 }

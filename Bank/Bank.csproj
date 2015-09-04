@@ -217,11 +217,14 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\SpreadsheetsController.cs" />
     <Compile Include="Models\Model.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Providers\PinnacleProvider.cs" />
+    <Compile Include="Repositories\IProviderRepository.cs" />
+    <Compile Include="Repositories\ProviderRepository.cs" />
     <Compile Include="Repositories\WagerRepository.cs" />
     <Compile Include="Repositories\IWagerRepository.cs" />
     <Compile Include="Repositories\ICompetitionRepository.cs" />

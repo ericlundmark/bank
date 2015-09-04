@@ -3,11 +3,13 @@ using System.Data.Entity.Infrastructure;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Routing;
 using Bank.Models;
 using Bank.Repositories;
 
 namespace Bank.Controllers
 {
+    [RoutePrefix("api/v1/spreadsheets")]
     public class SpreadsheetsController : ApiController
     {
         private readonly ISpreadsheetRepository _repository;
@@ -17,14 +19,14 @@ namespace Bank.Controllers
             _repository = new SpreadsheetRepository(new ApplicationDbContext());
         }
 
-        // GET: api/Spreadsheets
+        [Route("")]
         [ResponseType(typeof (List<Spreadsheet>))]
         public IHttpActionResult GetSpreadsheets()
         {
             return Ok(_repository.List());
         }
 
-        // GET: api/Spreadsheets/5
+        [Route("{id:int}")]
         [ResponseType(typeof (Spreadsheet))]
         public IHttpActionResult GetSpreadsheet(int id)
         {
@@ -37,7 +39,7 @@ namespace Bank.Controllers
             return Ok(spreadsheet);
         }
 
-        // PUT: api/Spreadsheets/5
+        [Route("{id:int}")]
         [ResponseType(typeof (void))]
         public IHttpActionResult PutSpreadsheet(int id, Spreadsheet spreadsheet)
         {
@@ -81,7 +83,7 @@ namespace Bank.Controllers
             return CreatedAtRoute("DefaultApi", new {id = spreadsheet.Id}, spreadsheet);
         }
 
-        // DELETE: api/Spreadsheets/5
+        [Route("{id:int}")]
         [ResponseType(typeof (Spreadsheet))]
         public IHttpActionResult DeleteSpreadsheet(int id)
         {
