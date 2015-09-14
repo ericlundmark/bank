@@ -1,13 +1,13 @@
-﻿using Bank.Models;
-using System.Data.Entity;
+﻿using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Bank.App_Start;
 
 namespace Bank
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -16,6 +16,7 @@ namespace Bank
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ProviderConfig.RegisterProviders();
         }
     }
 }

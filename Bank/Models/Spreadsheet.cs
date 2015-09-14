@@ -8,9 +8,6 @@ namespace Bank.Models
 {
     public class Spreadsheet : Model
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required(AllowEmptyStrings = true)]
         public string Name { get; set; }
 

@@ -2,8 +2,9 @@
 
 namespace Bank.Utility
 {
-    public class Provider : IProvider
+    public abstract class ProviderService : IProviderService
     {
+        public abstract string Name { get; }
         public ICompetitionRepository Competitions { get; set; }
         public ICompetitionParser Parser { get; set; }
         public IDataCollector Collector { get; set; }

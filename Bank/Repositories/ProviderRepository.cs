@@ -25,6 +25,11 @@ namespace Bank.Repositories
             return _context.Providers.Find(id);
         }
 
+        public Provider Find(string name)
+        {
+            return _context.Providers.FirstOrDefault(p => p.Name.Equals(name));
+        }
+
         public IQueryable<Provider> List()
         {
             return _context.Providers;

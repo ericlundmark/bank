@@ -184,6 +184,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\ProviderConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -253,8 +254,9 @@
     <Compile Include="Utility\IDataCollector.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utility\IProvider.cs" />
-    <Compile Include="Utility\Provider.cs" />
+    <Compile Include="Utility\IProviderService.cs" />
+    <Compile Include="Utility\ProviderService.cs" />
+    <Compile Include="Utility\ProviderState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

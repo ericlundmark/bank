@@ -1,6 +1,6 @@
 ﻿namespace Bank.Utility
 {
-    public interface IProvider
+    public interface IProviderService
     {
         void Run();
     }

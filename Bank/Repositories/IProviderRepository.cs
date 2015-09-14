@@ -7,6 +7,7 @@ namespace Bank.Repositories
     {
         Provider Create(Provider provider);
         Provider Find(int id);
+        Provider Find(string name);
         IQueryable<Provider> List();
         void Save(Provider provider);
         void Dispose(bool disposing);

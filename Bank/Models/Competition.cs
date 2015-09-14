@@ -6,9 +6,6 @@ namespace Bank.Models
 {
     public class Competition : Model
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public string ExternalId { get; set; }
         public Provider Provider { get; set; }
         public string Home { get; set; }

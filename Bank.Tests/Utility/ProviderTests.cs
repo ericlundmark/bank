@@ -4,7 +4,7 @@ using Bank.Repositories;
 using Bank.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Provider = Bank.Utility.Provider;
+using Provider = Bank.Utility.ProviderService;
 
 namespace Bank.Tests.Utility
 {
@@ -22,13 +22,12 @@ namespace Bank.Tests.Utility
 
             var mockRepository = new Mock<ICompetitionRepository>();
 
-            var provider = new Provider()
-            {
-                Collector = mockCollector.Object,
-                Competitions = mockRepository.Object,
-                Parser = mockParser.Object
-            };
-            provider.Run();
+            var provider = new Mock<Provider> { CallBase = true };
+            provider.Object.Collector = mockCollector.Object;
+            provider.Object.Competitions = mockRepository.Object;
+            provider.Object.Parser = mockParser.Object;
+
+            provider.Object.Run();
 
             mockRepository.Verify(r => r.Add(new List<Competition>()));
         }
