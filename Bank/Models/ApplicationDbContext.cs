@@ -8,6 +8,7 @@ namespace Bank.Models
         public ApplicationDbContext()
             : base("DefaultConnection", false)
         {
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
 
         public virtual DbSet<Spreadsheet> Spreadsheets { get; set; }
