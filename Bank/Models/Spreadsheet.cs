@@ -8,7 +8,7 @@ namespace Bank.Models
 {
     public class Spreadsheet : Model
     {
-        [Required(AllowEmptyStrings = true)]
+        [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
 
         [Required]
@@ -29,6 +29,14 @@ namespace Bank.Models
         public Spreadsheet()
         {
             Balance = Investment;
+        }
+
+        public Spreadsheet(string name, ApplicationUser creator, double? investment, double? balance)
+        {
+            Name = name;
+            Creator = creator;
+            Investment = investment;
+            Balance = balance;
         }
     }
 }

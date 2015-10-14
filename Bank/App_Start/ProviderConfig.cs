@@ -12,8 +12,8 @@ namespace Bank.App_Start
         {
             var repository = new ProviderRepository(new ApplicationDbContext());
             var providers =
-                typeof(Provider).Assembly.GetTypes()
-                    .Where(t => t.BaseType == typeof(Provider))
+                typeof(ProviderService).Assembly.GetTypes()
+                    .Where(t => t.BaseType == typeof(ProviderService))
                     .Select(Activator.CreateInstance);
 
             foreach (ProviderService providerService in providers)

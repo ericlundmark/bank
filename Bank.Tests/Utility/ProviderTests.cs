@@ -29,7 +29,7 @@ namespace Bank.Tests.Utility
 
             provider.Object.Run();
 
-            mockRepository.Verify(r => r.Add(new List<Competition>()));
+            mockRepository.Verify(r => r.Create(new List<Competition>()));
         }
     }
 }

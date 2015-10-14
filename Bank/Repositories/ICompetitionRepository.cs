@@ -8,6 +8,6 @@ namespace Bank.Repositories
         void Create(Competition competition);
         void Save(Competition competition);
         void Remove(Competition competition);
-        void Add(IEnumerable<Competition> competitions);
+        void Create(IEnumerable<Competition> competitions);
     }
 }
